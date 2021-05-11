@@ -9,5 +9,14 @@ class UsersContainer extends Component {
     );
   }
 }
+const mapStateToProps = state => (
+  {
 
-export default UsersContainer;
+  }
+)
+const mapDispatchToProps = dispatch => (
+  {
+
+  }
+)
+export default connect(mapStateToProps, mapDispatchToProps)(UsersContainer);
