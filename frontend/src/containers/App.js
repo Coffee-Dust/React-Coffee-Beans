@@ -2,18 +2,21 @@ import { BrowserRouter as Router, } from 'react-router-dom';
 import '../assets/App.css';
 import AppRoutes from '../components/AppRoutes';
 import Navbar from '../components/Navbar';
+import React, { Component } from 'react';
 
-function App() {
-  return (
-    <Router>
-      <div className="App">
-        <Navbar />
-        <div className="App-wrapper">
-          <AppRoutes />
+class App extends Component {
+  render() {
+    return (
+      <Router>
+        <div className="App">
+          <Navbar />
+          <div className="App-wrapper">
+            <AppRoutes />
+          </div>
         </div>
-      </div>
-    </Router>
-  );
+      </Router>
+    );
+  }
 }
 
 export default App;
