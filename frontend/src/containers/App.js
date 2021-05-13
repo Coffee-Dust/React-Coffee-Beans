@@ -1,11 +1,18 @@
+import { BrowserRouter as Router, } from 'react-router-dom';
 import '../assets/App.css';
-import UsersContainer from './Users';
+import AppRoutes from '../components/AppRoutes';
+
 
 function App() {
   return (
-    <div className="App">
-      <UsersContainer />
-    </div>
+    <Router>
+      <div className="App">
+
+        <div className="App-wrapper">
+          <AppRoutes />
+        </div>
+      </div>
+    </Router>
   );
 }
 
