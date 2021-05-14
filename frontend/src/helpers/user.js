@@ -3,10 +3,10 @@ import { addCurrentUser } from "../actions/users"
 import AjaxCall from "./ajax"
 
 export function isLoggedIn() {
-  return !!currentUser()
+  return !!getCurrentUser()
 }
 
-export function currentUser() {
+export function getCurrentUser() {
   return store.getState().users.currentUser
 }
 
