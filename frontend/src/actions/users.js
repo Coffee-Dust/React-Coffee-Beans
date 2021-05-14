@@ -8,7 +8,7 @@ export function createUser(formData) {
     new AjaxCall("/users").postData(formData)
     .then(user=> {
       if (user.id) {
-        dispatch({type: "ADD_CURRENT_USER", user})
+        dispatch(addCurrentUser(user))
       } else {
         alert("Something went wrong. Please try again.")
       }
@@ -21,10 +21,14 @@ export function loginUser(formData) {
     new AjaxCall("/sessions").postData(formData)
     .then(user=> {
       if (user.id) {
-        dispatch({ type: "ADD_CURRENT_USER", user })
+        dispatch(addCurrentUser(user))
       } else {
         alert(user.errors[0])
       }
     })
   }
+}
+
+export function addCurrentUser(userData) {
+  return {type: "ADD_CURRENT_USER", user: userData}
 }
