@@ -15,3 +15,16 @@ export function createUser(formData) {
     })
   }
 }
+
+export function loginUser(formData) {
+  return dispatch=> {
+    new AjaxCall("/sessions").postData(formData)
+    .then(user=> {
+      if (user.id) {
+        dispatch({ type: "ADD_CURRENT_USER", user })
+      } else {
+        alert(user.errors[0])
+      }
+    })
+  }
+}
