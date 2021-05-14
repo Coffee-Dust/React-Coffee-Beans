@@ -5,7 +5,9 @@ import Navbar from '../components/Navbar';
 import React, { Component } from 'react';
 
 class App extends Component {
+
   render() {
+
     return (
       <Router>
         <div className="App">
@@ -17,6 +19,7 @@ class App extends Component {
       </Router>
     );
   }
+
 }
 
 export default App;
