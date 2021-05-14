@@ -1,7 +1,7 @@
 class UserSerializer
 
   @@options = {
-    except: [:created_at, :updated_at]
+    only: [:id, :email, :name]
   }
 
   def initialize(user)
