@@ -1,4 +1,5 @@
 import { useState } from "react"
+import Post from "../../models/post";
 
 function PostsForm(props) {
   
@@ -6,6 +7,22 @@ function PostsForm(props) {
 
   const handleChange = event=> {
     setPostData({...postData, content: event.target.value})
+  }
+
+  const handleSubmit = event=> {
+    event.preventDefault()
+    const data = {
+      post: {
+        content: postData.content,
+        // image_attributes: {attachment: event.target.image.value},
+        user_id: props.container.currentUser.id
+      }
+    }
+    if (props.post) {
+      props.post.update(postData)
+    } else {
+      Post.create(data, post=> props.container.focus(post))
+    }
   }
 
   return (
