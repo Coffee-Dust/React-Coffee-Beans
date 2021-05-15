@@ -21,7 +21,7 @@ function PostsForm(props) {
     if (props.post) {
       props.post.update(postData)
     } else {
-      Post.create(data, post=> props.container.focus(post))
+      Post.create(data, post=> {props.addPost(post); props.container.focus(post)})
     }
   }
 
