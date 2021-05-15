@@ -6,4 +6,8 @@ class Post {
   }
 
 
+  static create(data, successCallback, failureCallback=null) {
+
+  }
+
 }
