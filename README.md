@@ -1,2 +1,2 @@
-# React-Coffee-Table
-My Coffee Table, but build in react-redux framework
+# React-Coffee-Beans
+Coffee-Beans social network, but build in react-redux framework
