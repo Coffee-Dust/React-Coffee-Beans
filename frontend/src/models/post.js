@@ -11,9 +11,16 @@ class Post {
     }
   }
 
-
-  static create(data, successCallback, failureCallback=null) {
-
+  static create(data, successCallback, failureCallback=_=>{}) {
+    new AjaxCall().postData(data).then(postData=> {
+      if (postData.id) {
+        const post = new this(postData)
+        successCallback(post)
+      } else {
+        console.error(`Post did not save! An id was not returned from server`, postData)
+        failureCallback(postData)
+      }
+    })
   }
 
 }
