@@ -1,4 +1,5 @@
 import AjaxCall from "../helpers/ajax"
+import Paths from "../helpers/path"
 class Post {
 
   constructor(data) {
@@ -12,7 +13,7 @@ class Post {
   }
 
   static create(data, successCallback, failureCallback=_=>{}) {
-    new AjaxCall().postData(data).then(postData=> {
+    new AjaxCall(Paths.posts).postData(data).then(postData=> {
       if (postData.id) {
         const post = new this(postData)
         successCallback(post)
