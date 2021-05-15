@@ -1,13 +1,22 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
 class PostsContainer extends Component {
   render() {
     return (
       <div>
-        
+
       </div>
     );
   }
 }
 
-export default PostsContainer;
+const mapStateToProps = state=> ({
+
+})
+
+const mapDispatchToProps = dispatch=> ({
+
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(PostsContainer);
