@@ -1,13 +1,32 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { addPost } from '../actions/posts';
+import FocusPost from '../components/posts/Focus';
 import PostsForm from '../components/posts/Form';
 
 class PostsContainer extends Component {
+
+  state = {
+    currentFocus: false
+  }
+
+  focus(post) {
+    this.setState(prev=> ({...prev, currentFocus: post}))
+  }
+  closeFocus() {
+    this.setState(prev => ({ ...prev, currentFocus: false }))
+  }
+
   render() {
     return (
       <div>
-        <PostsForm addPost={this.props.actions.addPost} post={false} container={this.props}/>
+        {(this.state.currentFocus) ?
+        <FocusPost container={this} post={this.state.currentFocus} />
+        :
+          null
+        }
+
+        <PostsForm addPost={this.props.actions.addPost} post={false} container={this}/>
       </div>
     );
   }
