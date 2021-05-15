@@ -15,7 +15,7 @@ function PostsForm(props) {
       post: {
         content: postData.content,
         // image_attributes: {attachment: event.target.image.value},
-        user_id: props.container.currentUser.id
+        user_id: props.container.props.currentUser.id
       }
     }
     if (props.post) {
