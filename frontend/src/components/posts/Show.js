@@ -1,14 +1,12 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-class ShowPost extends Component {
-  render() {
-    return (
-      <div>
-        
-      </div>
-    );
-  }
+function ShowPost(props) {
+  return (
+    <div>
+
+    </div>
+  )
 }
 
-export default Show;
+export default ShowPost;
 
