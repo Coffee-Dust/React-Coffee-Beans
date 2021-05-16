@@ -9,4 +9,8 @@ class Post < ActiveRecord::Base
   scope :search, ->(query_string) {self.where("content LIKE ?", "%#{query_string}%")}
 
   accepts_nested_attributes_for :image
+
+  def comment_count
+    self.comments.count
+  end
 end
