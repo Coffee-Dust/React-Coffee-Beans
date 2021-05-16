@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { addPost } from '../actions/posts';
 import FocusPost from '../components/posts/Focus';
 import PostsForm from '../components/posts/Form';
+import ShowPost from '../components/posts/Show';
 
 class PostsContainer extends Component {
 
@@ -20,12 +21,12 @@ class PostsContainer extends Component {
   render() {
     return (
       <div>
+        {this.props.posts.map(post=> <ShowPost key={post.id} post={post} />)}
         {(this.state.currentFocus) ?
         <FocusPost container={this} post={this.state.currentFocus} />
         :
           null
         }
-
         <PostsForm addPost={this.props.actions.addPost} post={false} container={this}/>
       </div>
     );
