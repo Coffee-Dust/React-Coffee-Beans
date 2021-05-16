@@ -1,11 +1,19 @@
-import React from 'react';
+import React, { Component } from 'react';
 
-function FocusPost(props) {
-  return (
-    <div>
-      
-    </div>
-  );
+class FocusPost extends Component {
+  constructor(props) {
+    super()
+    this.container = props.container
+    this.post = props.post
+  }
+  render() {
+    return (
+      <div>
+        <button onClick={e=> this.container.closeFocus(this.post)}>X</button>
+        <p>{this.post.content}</p>
+      </div>
+    );
+  }
 }
 
 export default FocusPost;
