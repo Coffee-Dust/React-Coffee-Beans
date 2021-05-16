@@ -3,7 +3,7 @@ class PostSerializer
   @@options = {
     except: [:updated_at],
     include: {
-      user: {only: [:id]}
+      user: {only: [:id, :name]}
     }
   }
 
