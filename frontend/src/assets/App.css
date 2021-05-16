@@ -1,3 +1,22 @@
 .App {
+  background: url("images/brickwallbg2.jpg");
+  background-size: contain;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
 
+.App-navbar {
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.App-wrapper {
+  background-color: rgba(0, 0, 0, 0.8);
+  width: 80%;
+  margin: auto;
+  height: 1000px
 }
