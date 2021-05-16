@@ -6,7 +6,7 @@ class Post {
     if (data.id) {
       this.id = data.id
       this.content = data.content
-      this.user_id = data.user_id
+      this.user = data.user
     } else {
       throw new Error("Invalid Post Creation: Missing ID property")
     }
