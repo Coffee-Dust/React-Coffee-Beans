@@ -1,7 +1,9 @@
 const Paths = {
   posts: "/beans",
   
-  profile: "/profile"
+  profile: "/profile",
+
+  showUser: (user)=> `/users/${user.id}`
 
 }
 
