@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { addPost, fetchPosts } from '../actions/posts';
 import FocusPost from '../components/posts/Focus';
 import PostsForm from '../components/posts/Form';
-import ShowPost from '../components/posts/Show';
+import PostList from '../components/posts/List';
 
 const mapStateToProps = state => ({
   currentUser: state.users.currentUser,
@@ -37,7 +37,8 @@ class PostsContainer extends Component {
   render() {
     return (
       <div>
-        {this.props.posts.map(post=> <ShowPost key={post.id} post={post} />)}
+        <PostList posts={this.props.posts} />
+
         {(this.state.currentFocus) ?
         <FocusPost container={this} post={this.state.currentFocus} />
         :
