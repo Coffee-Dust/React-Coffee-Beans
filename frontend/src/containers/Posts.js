@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { closePopup, displayPopup } from '../actions/app';
 import { addPost, fetchPosts } from '../actions/posts';
-import FocusPost from '../components/posts/Focus';
 import PostsForm from '../components/posts/Form';
 import PostList from '../components/posts/List';
 
@@ -14,37 +14,31 @@ const mapDispatchToProps = dispatch => ({
   actions: {
     addPost: post => dispatch(addPost(post)),
     fetchPosts: limit => dispatch(fetchPosts(limit))
+  },
+  app: {
+    displayPopup: content=> dispatch(displayPopup(content)),
+    closePopup: closePopup
   }
 })
 
 class PostsContainer extends Component {
 
-  state = {
-    currentFocus: false
-  }
-
-  focus(post) {
-    this.setState(prev=> ({...prev, currentFocus: post}))
-  }
-  closeFocus() {
-    this.setState(prev => ({ ...prev, currentFocus: false }))
-  }
-
   componentDidMount() {
     this.props.actions.fetchPosts()
+  }
+
+  displayNewPostButtonIfLoggedIn() {
+    if (this.props.currentUser) {
+      return <button className="Posts-new-button" onClick={_=> this.props.app.displayPopup([<PostsForm post={_} container={this.props}/>])}>+</button>
+    }
+    return null
   }
 
   render() {
     return (
       <div>
+        {this.displayNewPostButtonIfLoggedIn()}
         <PostList posts={this.props.posts} />
-
-        {(this.state.currentFocus) ?
-        <FocusPost container={this} post={this.state.currentFocus} />
-        :
-          null
-        }
-        <PostsForm addPost={this.props.actions.addPost} post={false} container={this}/>
       </div>
     );
   }
