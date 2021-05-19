@@ -5,6 +5,8 @@ export default function postsReducer(state = {all:[], status:{}}, action) {
       return {...state, all: [...state.all, action.post]}
     case "FETCH_POSTS":
       return {...state, status: {...state.status, pendingFetch: true}}
+    case "ADD_POSTS":
+      return {...state, all: action.posts, status: {...state.status, pendingFetch: false}}
 
     default:
       return state
