@@ -1,11 +1,28 @@
 import React from 'react';
+import { closePopup } from '../../actions/app';
+import { connect } from 'react-redux'
 
-function Popup({children}) {
+function Popup(props) {
+
+  const checkClickAndClose = event=> {
+    console.log("thisgotclicked!", event.target);
+    if (event.target.classList.contains("App-popup")) {
+      props.closePopup()
+    }
+  }
+
   return (
-    <div className="App-popup">
-      {children}
+    <div className="App-popup" onClick={checkClickAndClose}>
+      <div className="App-popup-content">
+        <button 
+        className="close-button"
+        onClick={props.closePopup}>x</button>
+
+        {props.children}
+        
+      </div>
     </div>
   );
 }
 
-export default Popup;
+export default connect(null, {closePopup: closePopup})(Popup);
