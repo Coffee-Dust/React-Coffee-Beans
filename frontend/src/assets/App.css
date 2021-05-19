@@ -56,9 +56,10 @@
   background-color: rgba(0, 0, 0, 0.3);
   width: 80%;
   margin: auto;
-  height: 1000px;
+  min-height: 1000px;
   color: antiquewhite;
   display: flex;
+  padding: 10px;
 }
 
 .App-popup {
