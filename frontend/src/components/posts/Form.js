@@ -3,31 +3,27 @@ import Post from "../../models/post";
 
 function PostsForm(props) {
   
-  const [postData, setPostData] = useState({content: props.post.content || ""});
-
-  const handleChange = event=> {
-    setPostData({...postData, content: event.target.value})
-  }
+  const [content, setContent] = useState(props.post.content || "");
 
   const handleSubmit = event=> {
     event.preventDefault()
     const data = {
       post: {
-        content: postData.content,
+        content: content,
         // image_attributes: {attachment: event.target.image.value},
-        user_id: props.container.props.currentUser.id
+        user_id: props.container.currentUser.id
       }
     }
-    if (props.post) {
-      props.post.update(postData)
+    if (props.post.id) {
+      props.post.update(content)
     } else {
-      Post.create(data, post=> {props.addPost(post); props.container.focus(post)})
+      Post.create(data, post=> {props.container.actions.addPost(post); props.container.app.closePopup()})
     }
   }
 
   return (
     <form onSubmit={handleSubmit}>
-      <input type="text" onChange={handleChange} name="content" value={postData.content}/>
+      <input type="text" onChange={e=> setContent(e.target.value)} name="content" value={content}/>
       {
         (!props.post) ?
           <input type="file" accept="image/png, image/jpeg" name="image"/>
