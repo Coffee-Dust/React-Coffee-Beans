@@ -3,6 +3,8 @@ import '../assets/App.css';
 import AppRoutes from '../components/app/AppRoutes';
 import Navbar from '../components/app/Navbar';
 import React, { Component } from 'react';
+import {connect} from 'react-redux'
+import Popup from '../components/app/Popup';
 
 class App extends Component {
 
@@ -13,6 +15,7 @@ class App extends Component {
         <div className="App">
           <Navbar />
           <div className="App-wrapper">
+            {(this.props.currentPopup) ? <Popup>{this.props.currentPopup}</Popup> : null}
             <AppRoutes />
           </div>
         </div>
@@ -22,4 +25,4 @@ class App extends Component {
 
 }
 
-export default App;
+export default connect(state=>({currentPopup: state.app.currentPopup}))(App);
