@@ -14,6 +14,6 @@ class PostSerializer
   def to_serialized_json
     @json = @post.as_json(@@options)
     @json["comment_count"] = @post.comment_count
-    @json.to_json
+    @json
   end
 end
