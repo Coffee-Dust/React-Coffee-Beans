@@ -1,0 +1,20 @@
+
+.Posts-new-button {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+
+  background: url("images/bean@4.png");
+  background-size: contain;
+  height: 80px;
+  width: 80px;
+  background-repeat: no-repeat;
+  background-position-x: center;
+  border: none;
+  cursor: pointer;
+
+  color: antiquewhite;
+  font-size: 3em;
+  text-align: right;
+  font-family: cursive;
+}
