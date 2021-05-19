@@ -7,11 +7,46 @@
   width: 100%;
 }
 
+.App-logo {
+  background: url("images/bean@4.png");
+  background-size: contain;
+  height: 60px;
+  width: 100px;
+  background-repeat: no-repeat;
+  background-position-x: center;
+}
+.App-logo span {
+  position: absolute;
+  overflow: visible;
+  color: antiquewhite;
+  font-family: cursive;
+  text-align: center;
+  bottom: 0px;
+  font-size: 1.2em;
+}
+
 .App-navbar {
   height: 50px;
   display: flex;
   align-items: center;
   justify-content: center;
+  background-color: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(4px);
+  -moz-backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  box-shadow: 3px 3px 5px rgba(73, 31, 6, 0.9);
+}
+
+.App-navbar a {
+  display: block;
+  text-decoration: none;
+  margin: 0 20px;
+  color: antiquewhite;
+}
+
+.App-navbar a:hover {
+  transition: 1s;
+  color: black;
 }
 
 .App-wrapper {
@@ -19,4 +54,23 @@
   width: 80%;
   margin: auto;
   height: 1000px
+}
+
+.App-popup {
+  z-index: 9;
+  width: 100%;
+  height: 100%;
+  top: 0px;
+  left: 0px;
+  position: fixed;
+  backdrop-filter: blur(10px);
+  -moz-backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  background-color: rgba(0, 0, 0, 0.6);
+  width: 100%;
+  height: 100%;
+}
+.App-popup-content {
+  width: 80%;
+  display: flex;
 }
