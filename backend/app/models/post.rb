@@ -13,4 +13,7 @@ class Post < ActiveRecord::Base
   def comment_count
     self.comments.count
   end
+  def reactions_count
+    self.reactions.group(:reaction_type).count
+  end
 end
