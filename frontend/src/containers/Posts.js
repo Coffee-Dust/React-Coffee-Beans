@@ -5,6 +5,18 @@ import FocusPost from '../components/posts/Focus';
 import PostsForm from '../components/posts/Form';
 import ShowPost from '../components/posts/Show';
 
+const mapStateToProps = state => ({
+  currentUser: state.users.currentUser,
+  posts: state.posts.all
+})
+
+const mapDispatchToProps = dispatch => ({
+  actions: {
+    addPost: post => dispatch(addPost(post)),
+    fetchPosts: limit => dispatch(fetchPosts(limit))
+  }
+})
+
 class PostsContainer extends Component {
 
   state = {
@@ -36,17 +48,5 @@ class PostsContainer extends Component {
     );
   }
 }
-
-const mapStateToProps = state=> ({
-  currentUser: state.users.currentUser,
-  posts: state.posts.all
-})
-
-const mapDispatchToProps = dispatch=> ({
-  actions: {
-    addPost: post=> dispatch(addPost(post)),
-    fetchPosts: limit=> dispatch(fetchPosts(limit))
-  }
-})
 
 export default connect(mapStateToProps, mapDispatchToProps)(PostsContainer);
