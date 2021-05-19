@@ -1,7 +1,7 @@
 import { BrowserRouter as Router, } from 'react-router-dom';
 import '../assets/App.css';
-import AppRoutes from '../components/AppRoutes';
-import Navbar from '../components/Navbar';
+import AppRoutes from '../components/app/AppRoutes';
+import Navbar from '../components/app/Navbar';
 import React, { Component } from 'react';
 
 class App extends Component {
