@@ -8,6 +8,7 @@ class Post {
       this.content = data.content
       this.user = data.user
       this.commentCount = data.comment_count
+      this.date = new Date(data.created_at)
     } else {
       throw new Error("Invalid Post Creation: Missing ID property")
     }
