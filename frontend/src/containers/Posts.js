@@ -36,7 +36,7 @@ class PostsContainer extends Component {
 
   render() {
     return (
-      <div>
+      <div className="Posts-container">
         {this.displayNewPostButtonIfLoggedIn()}
         <PostList posts={this.props.posts} />
       </div>
