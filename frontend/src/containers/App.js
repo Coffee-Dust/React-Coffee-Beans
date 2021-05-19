@@ -1,5 +1,6 @@
 import { BrowserRouter as Router, } from 'react-router-dom';
 import '../assets/App.css';
+import '../assets/Post.css';
 import AppRoutes from '../components/app/AppRoutes';
 import Navbar from '../components/app/Navbar';
 import React, { Component } from 'react';
@@ -14,8 +15,8 @@ class App extends Component {
       <Router>
         <div className="App">
           <Navbar />
+          {(this.props.currentPopup) ? <Popup>{this.props.currentPopup}</Popup> : null}
           <div className="App-wrapper">
-            {(this.props.currentPopup) ? <Popup>{this.props.currentPopup}</Popup> : null}
             <AppRoutes />
           </div>
         </div>
