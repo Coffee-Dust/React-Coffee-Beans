@@ -1,10 +1,21 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import {connect} from 'react-redux'
+import { displayPopup, closePopup } from '../actions/app';
 import { createUser, loginUser } from '../actions/users';
 import LoginForm from '../components/users/LoginForm';
 import NewUserForm from '../components/users/NewForm';
 
-class UsersContainer extends Component {
+class UsersContainer extends PureComponent {
+  
+  componentDidMount() {
+    if (!this.props.currentUser) {
+      this.props.app.displayPopup([
+        <LoginForm loginUser={this.props.loginUser}/>,
+        <NewUserForm createUser={this.props.createUser}/>
+      ])
+    }
+  }
+
   render() {
     if (this.props.currentUser) {
       return (
@@ -15,8 +26,7 @@ class UsersContainer extends Component {
     } else {
       return (
         <div>
-          <LoginForm loginUser={this.props.loginUser}/>
-          <NewUserForm createUser={this.props.createUser}/>
+          Please login!
         </div>
       );
     }
@@ -30,8 +40,11 @@ const mapStateToProps = state=> (
 )
 const mapDispatchToProps = dispatch=> (
   {
-    createUser: formData => dispatch(createUser(formData)),
-    loginUser: formData=> dispatch(loginUser(formData))
+    createUser: formData=> dispatch(createUser(formData)),
+    loginUser: formData=> dispatch(loginUser(formData)),
+    app: {
+      displayPopup: content=> dispatch({type: "DISPLAY_POPUP", payload: content})
+    }
   }
 )
 export default connect(mapStateToProps, mapDispatchToProps)(UsersContainer);
