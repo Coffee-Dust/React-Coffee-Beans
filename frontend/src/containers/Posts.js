@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { addPost } from '../actions/posts';
+import { addPost, fetchPosts } from '../actions/posts';
 import FocusPost from '../components/posts/Focus';
 import PostsForm from '../components/posts/Form';
 import ShowPost from '../components/posts/Show';
@@ -16,6 +16,10 @@ class PostsContainer extends Component {
   }
   closeFocus() {
     this.setState(prev => ({ ...prev, currentFocus: false }))
+  }
+
+  componentDidMount() {
+    this.props.actions.fetchPosts()
   }
 
   render() {
@@ -40,7 +44,8 @@ const mapStateToProps = state=> ({
 
 const mapDispatchToProps = dispatch=> ({
   actions: {
-    addPost: post=> dispatch(addPost(post))
+    addPost: post=> dispatch(addPost(post)),
+    fetchPosts: limit=> dispatch(fetchPosts(limit))
   }
 })
 
