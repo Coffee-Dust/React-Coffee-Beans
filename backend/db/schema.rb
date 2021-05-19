@@ -37,6 +37,8 @@ ActiveRecord::Schema.define(version: 2021_02_17_180704) do
     t.integer "post_id"
     t.integer "user_id"
     t.string "content"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "images", force: :cascade do |t|
@@ -47,6 +49,8 @@ ActiveRecord::Schema.define(version: 2021_02_17_180704) do
   create_table "posts", force: :cascade do |t|
     t.integer "user_id"
     t.text "content"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "reactions", force: :cascade do |t|
@@ -61,6 +65,8 @@ ActiveRecord::Schema.define(version: 2021_02_17_180704) do
     t.string "name"
     t.string "email"
     t.string "password_digest"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
