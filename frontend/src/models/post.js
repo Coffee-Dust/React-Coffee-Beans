@@ -9,6 +9,7 @@ class Post {
       this.user = data.user
       this.commentCount = data.comment_count
       this.date = new Date(data.created_at)
+      this.reactionsCount = data.reactions_count
     } else {
       throw new Error("Invalid Post Creation: Missing ID property")
     }
