@@ -1,13 +1,6 @@
 import React, { Component } from 'react';
-
-const reactionTypes = {
-  "like": "👍",
-  "dislike": "👎",
-  "love": "💜",
-  "laugh": "🤣",
-  "angry": "😡",
-  "sad": "😢"
-}
+import { connect } from 'react-redux';
+import Reaction from '../models/reaction';
 
 class ReactionsContainer extends Component {
 
@@ -18,15 +11,19 @@ class ReactionsContainer extends Component {
   }
 
   generateReactionButtons() {
-    return Object.keys(reactionTypes).map(type=> {
-      let glyph = reactionTypes[type]
-      let count = this.reactionsCount[type]
-      return <Reaction glyph={glyph} count={count} handleClick={this.handleClick} key={type}/>
+    return Object.keys(Reaction.typeGlyphs).map(type=> {
+      return (
+      <ReactionButton 
+        reaction={new Reaction(type, this.props.parent, this.props.currentUser)} 
+        count={this.reactionsCount[type]} 
+        updateCount={this.updateCount} 
+        key={type} 
+      />)
     })
   }
 
-  handleClick(event) {
-
+  updateCount(reactionsCount) {
+    //update reactionsCount state to regenerate buttons...
   }
 
   render() {
@@ -38,10 +35,15 @@ class ReactionsContainer extends Component {
   }
 }
 
-function Reaction(props) {
+function ReactionButton({reaction, count, updateCount}) {
   return (
-    <button>{props.count}{props.glyph}</button>
+    <button 
+    onClick={_=> reaction.submitClick(reactionsCount=> updateCount(reactionsCount))}
+    disabled={!reaction.currentUser}
+    >
+      {count}{reaction.glyph}
+    </button>
   )
 }
 
-export default ReactionsContainer;
+export default connect(state=> ({currentUser: state.users.currentUser}))(ReactionsContainer);
