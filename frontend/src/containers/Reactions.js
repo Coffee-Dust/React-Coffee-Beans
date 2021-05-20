@@ -21,7 +21,7 @@ class ReactionsContainer extends Component {
     return Object.keys(reactionTypes).map(type=> {
       let glyph = reactionTypes[type]
       let count = this.reactionsCount[type]
-      return <Reaction glyph={glyph} count={count} handleClick={this.handleClick} />
+      return <Reaction glyph={glyph} count={count} handleClick={this.handleClick} key={type}/>
     })
   }
 
