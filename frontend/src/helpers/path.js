@@ -3,6 +3,8 @@ const Paths = {
   
   profile: "/profile",
 
+  reactions: "/reactions",
+
   showUser: (user)=> `/users/${user.id}`
 
 }
