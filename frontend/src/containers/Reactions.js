@@ -38,7 +38,7 @@ class ReactionsContainer extends Component {
 function ReactionButton({reaction, count, updateCount}) {
   return (
     <button 
-    onClick={_=> reaction.submitClick(reactionsCount=> updateCount(reactionsCount))}
+    onClick={_=> reaction.submitClick(newReactionsCount=> updateCount(newReactionsCount))}
     disabled={!reaction.currentUser}
     >
       {count}{reaction.glyph}
