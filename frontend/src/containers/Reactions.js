@@ -7,7 +7,9 @@ class ReactionsContainer extends Component {
   constructor(props) {
     super(props)
     this.parentType = this.props.parent.constructor.name
-    this.reactionsCount = this.props.parent.reactionsCount
+    this.state = {
+      reactionsCount: this.props.parent.reactionsCount
+    }
   }
 
   generateReactionButtons() {
@@ -15,15 +17,15 @@ class ReactionsContainer extends Component {
       return (
       <ReactionButton 
         reaction={new Reaction(type, this.props.parent, this.props.currentUser)} 
-        count={this.reactionsCount[type]} 
+        count={this.state.reactionsCount[type]} 
         updateCount={this.updateCount} 
         key={type} 
       />)
     })
   }
 
-  updateCount(reactionsCount) {
-    //update reactionsCount state to regenerate buttons...
+  updateCount = (newReactionsCount)=> {
+    this.setState(s=> ({...s, reactionsCount: newReactionsCount}))
   }
 
   render() {
