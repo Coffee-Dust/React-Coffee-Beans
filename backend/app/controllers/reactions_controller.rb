@@ -14,7 +14,7 @@ class ReactionsController < ApplicationController
   def create
 
     if @reaction.reactable && @reaction.save
-      render json: @reaction.reactable
+      render json: @reaction.reactable.reactions_count
     else
       render json: {errors: ["This should never be called. Like seriously if your seeing this something went really wrong"]}, status: 569
     end
@@ -22,7 +22,7 @@ class ReactionsController < ApplicationController
 
   def destroy
     @reaction.destroy
-    render json: @reaction.reactable
+    render json: @reaction.reactable.reactions_count
   end
 
   private
