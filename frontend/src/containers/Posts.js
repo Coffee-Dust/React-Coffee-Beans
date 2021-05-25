@@ -33,13 +33,7 @@ class PostsContainer extends Component {
     this.props.actions.fetchPosts()
   }
 
-  displayNewPostButtonIfLoggedIn() {
-    if (this.props.currentUser) {
-      return <button className="Posts-new-button" onClick={_=> this.props.app.displayPopup([<PostsForm post={_} container={this.props}/>])}>+</button>
-    }
-    return null
-  }
-
+  
   render() {
     return (
       <div className="Posts-container">
@@ -48,6 +42,14 @@ class PostsContainer extends Component {
       </div>
     );
   }
+
+  displayNewPostButtonIfLoggedIn() {
+    if (this.props.currentUser) {
+      return <button className="Posts-new-button" onClick={_=> this.props.app.displayPopup([<PostsForm post={_} container={this.props}/>])}>+</button>
+    }
+    return null
+  }
+  
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(PostsContainer);
