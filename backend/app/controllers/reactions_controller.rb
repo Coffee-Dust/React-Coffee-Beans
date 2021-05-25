@@ -3,6 +3,12 @@ class ReactionsController < ApplicationController
 
     @reaction = Reaction.find_or_build_reaction_with(reaction_params, current_user)
 
+    if @reaction.persisted?
+      # If it is persisted, then it already exists and must be destroyed!
+      self.destroy
+    else
+      self.create
+    end
   end
 
   def create
