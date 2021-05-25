@@ -43,7 +43,7 @@ const mapDispatchToProps = dispatch=> (
     createUser: formData=> dispatch(createUser(formData)),
     loginUser: formData=> dispatch(loginUser(formData)),
     app: {
-      displayPopup: content=> dispatch({type: "DISPLAY_POPUP", payload: {content}})
+      displayPopup: content=> dispatch(displayPopup(content))
     }
   }
 )
