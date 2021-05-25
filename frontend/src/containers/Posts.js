@@ -7,7 +7,8 @@ import PostList from '../components/posts/List';
 
 const mapStateToProps = state => ({
   currentUser: state.users.currentUser,
-  posts: state.posts.all
+  posts: state.posts.all,
+  app: {currentPopup: state.app.currentPopup}
 })
 
 const mapDispatchToProps = dispatch => ({
