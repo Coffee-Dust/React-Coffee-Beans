@@ -15,7 +15,7 @@ class App extends Component {
       <Router>
         <div className="App">
           <Navbar />
-          {(this.props.currentPopup) ? <Popup>{this.props.currentPopup}</Popup> : null}
+          {(this.props.currentPopup) ? <Popup onClose={this.props.currentPopup.onClose}>{this.props.currentPopup.content}</Popup> : null}
           <div className="App-wrapper">
             <AppRoutes />
           </div>
