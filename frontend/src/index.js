@@ -6,13 +6,20 @@ import './assets/index.css';
 import App from './containers/App';
 import rootReducer from './reducers'
 import thunk from 'redux-thunk';
+import { routerMiddleware, ConnectedRouter } from 'connected-react-router';
+import { createBrowserHistory } from 'history';
 // window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
-export const store = createStore(rootReducer, applyMiddleware(thunk))
+
+export const history = createBrowserHistory();
+
+export const store = createStore(rootReducer(history), applyMiddleware(thunk, routerMiddleware(history)))
 
 ReactDOM.render(
   <Provider store={store}>
   <React.StrictMode>
-    <App />
+    <ConnectedRouter history={history}>
+      <App />
+    </ConnectedRouter>
   </React.StrictMode>
   </Provider>,
   document.getElementById('root')
