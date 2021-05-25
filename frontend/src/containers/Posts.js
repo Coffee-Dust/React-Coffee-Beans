@@ -24,6 +24,11 @@ const mapDispatchToProps = dispatch => ({
 
 class PostsContainer extends Component {
 
+  constructor(props) {
+    super(props)
+
+  }
+
   componentDidMount() {
     this.props.actions.fetchPosts()
   }
