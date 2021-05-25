@@ -1,7 +1,7 @@
-export function displayPopup(contentArray=[]) {
+export function displayPopup(contentArray=[], onClose=_=>{}) {
   return {
     type: "DISPLAY_POPUP",
-    payload: contentArray
+    payload: {content: contentArray, onClose}
   }
 }
 

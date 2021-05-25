@@ -7,6 +7,7 @@ function Popup(props) {
   const checkClickAndClose = event=> {
     console.log("thisgotclicked!", event.target);
     if (event.target.classList.contains("App-popup")) {
+      props.onClose()
       props.closePopup()
     }
   }
@@ -16,7 +17,7 @@ function Popup(props) {
       <div className="App-popup-content">
         <button 
         className="close-button"
-        onClick={props.closePopup}>x</button>
+        onClick={_=> {props.onClose(); props.closePopup()}}>x</button>
 
         {props.children}
         
