@@ -3,12 +3,13 @@ import { connect } from 'react-redux';
 import { closePopup, displayPopup } from '../actions/app';
 import { addPost, fetchPosts } from '../actions/posts';
 import PostsForm from '../components/posts/Form';
+import FullscreenPost from '../components/posts/Fullscreen';
 import PostList from '../components/posts/List';
 
 const mapStateToProps = state => ({
   currentUser: state.users.currentUser,
   posts: state.posts.all,
-  app: {currentPopup: state.app.currentPopup}
+  currentPopup: state.app.currentPopup,
 })
 
 const mapDispatchToProps = dispatch => ({
@@ -17,8 +18,8 @@ const mapDispatchToProps = dispatch => ({
     fetchPosts: limit => dispatch(fetchPosts(limit))
   },
   app: {
-    displayPopup: content=> dispatch(displayPopup(content)),
-    closePopup: closePopup
+    displayPopup: (content, onClose)=> dispatch(displayPopup(content, onClose)),
+    closePopup: _=> dispatch(closePopup())
   }
 })
 
@@ -33,14 +34,34 @@ class PostsContainer extends Component {
     this.props.actions.fetchPosts()
   }
 
+  shouldComponentUpdate() {
+    if (this.props.currentPopup) {
+      return false
+    } else {
+      return true
+    }
+  }
+
   
   render() {
     return (
       <div className="Posts-container">
+        {this.displayFullscreenPost()}
         {this.displayNewPostButtonIfLoggedIn()}
         <PostList posts={this.props.posts} />
       </div>
     );
+  }
+
+  displayFullscreenPost() {
+    if (this.props.match.params.id && this.props.currentPopup === false) {
+      this.props.app.displayPopup([<FullscreenPost post={this.props.posts.find(p => p.id == this.props.match.params.id)}/>], this.exitFullscreenPost)
+    }
+  }
+
+  exitFullscreenPost = _=> {
+    this.props.app.closePopup()
+    this.props.history.goBack();
   }
 
   displayNewPostButtonIfLoggedIn() {
