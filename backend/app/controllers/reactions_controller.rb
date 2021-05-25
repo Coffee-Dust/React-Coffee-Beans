@@ -5,6 +5,14 @@ class ReactionsController < ApplicationController
 
   end
 
+  def create
+
+    if @reaction.reactable && @reaction.save
+      render json: @reaction.reactable
+    else
+      render json: {errors: ["This should never be called. Like seriously if your seeing this something went really wrong"]}, status: 569
+    end
+  end
 
   private
 
