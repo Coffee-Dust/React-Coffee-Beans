@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-class FocusPost extends Component {
+class FullscreenPost extends Component {
   constructor(props) {
     super()
     this.container = props.container
@@ -16,4 +16,4 @@ class FocusPost extends Component {
   }
 }
 
-export default FocusPost;
+export default FullscreenPost;
