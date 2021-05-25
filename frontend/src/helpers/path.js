@@ -5,7 +5,9 @@ const Paths = {
 
   reactions: "/reactions",
 
-  showUser: (user)=> `/users/${user.id}`
+  showUser: (user)=> `/users/${user.id}`,
+
+  showPost: (post)=> `/beans/${post.id}`
 
 }
 
