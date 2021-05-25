@@ -14,6 +14,11 @@ class ReactionsController < ApplicationController
     end
   end
 
+  def destroy
+    @reaction.destroy
+    render json: @reaction.reactable
+  end
+
   private
 
   def reaction_params
