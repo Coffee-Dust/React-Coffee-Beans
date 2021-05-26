@@ -1,5 +1,6 @@
 import AjaxCall from "../helpers/ajax"
 import Paths from "../helpers/path"
+import Comment from "./comment"
 class Post {
 
   constructor(data) {
@@ -13,6 +14,10 @@ class Post {
     } else {
       throw new Error("Invalid Post Creation: Missing ID property")
     }
+  }
+
+  async fetchComments() {
+    return new AjaxCall(Paths.showPostComments(this)).getData().then(commentsData=> commentsData.map(data=> new Comment(data)))
   }
 
   static create(data, successCallback, failureCallback=_=>{}) {
