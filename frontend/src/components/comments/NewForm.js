@@ -7,13 +7,19 @@ function NewCommentForm(props) {
 
   const handleSubmit = event=> {
     event.preventDefault();
-    const data = {
-      content: content,
-      post_id: props.post.id,
-      user_id: props.currentUser.id
-    }
 
-    Comment.create(data, props.onNewCommentPersisted)
+    if (content.length > 0) {
+
+      const data = {
+        content: content,
+        post_id: props.post.id,
+        user_id: props.currentUser.id
+      }
+
+      Comment.create(data, props.onNewCommentPersisted)
+    } else {
+      event.target.content.placeholder = "You cannot submit an empty comment"
+    }
   }
 
   return (
