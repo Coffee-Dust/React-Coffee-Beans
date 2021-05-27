@@ -16,7 +16,7 @@ function NewCommentForm(props) {
         user_id: props.currentUser.id
       }
 
-      Comment.create(data, props.onNewCommentPersisted)
+      Comment.create(data, newComment=> {setContent(""); props.onNewCommentPersisted(newComment)})
     } else {
       event.target.content.placeholder = "You cannot submit an empty comment"
     }
