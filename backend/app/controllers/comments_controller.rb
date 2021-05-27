@@ -5,4 +5,8 @@ class CommentsController < ApplicationController
     render json: CommentSerializer.new(comments).to_serialized_json
   end
 
+  def create
+    
+  end
+
 end
