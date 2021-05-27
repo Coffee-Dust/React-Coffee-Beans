@@ -17,7 +17,7 @@ function NewCommentForm(props) {
   }
 
   return (
-    <div className="Comments-new-form">
+    <div className="Comments-new-form" hidden={!props.currentUser}>
       <form onSubmit={handleSubmit}>
         <input type="text" name="content" value={content} onChange={e=> setContent(e.target.value)}/>
       </form>
