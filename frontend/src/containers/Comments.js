@@ -10,6 +10,12 @@ class CommentsContainer extends Component {
     this.post = props.post
   }
 
+  componentDidMount() {
+    if (this.post.commentCount > 0) {
+      this.post.fetchComments().then(comments=> this.setState({comments: comments}))
+    }
+  }
+
   render() {
     return (
       <div>
