@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { ReactComponent as CommentIcon } from '../../assets/icons/comment.svg';
+import CommentsContainer from '../../containers/Comments';
 import ReactionsContainer from '../../containers/Reactions';
 import Paths from '../../helpers/path';
 
@@ -16,7 +17,10 @@ class FullscreenPost extends Component {
         <div className="Posts-show-content"><p>{this.props.post.content}</p></div>
         <div className="Posts-show-interactions-bar">
           <ReactionsContainer parent={this.props.post} />
-          <span className="Posts-show-comment-count"> {<CommentIcon />} {this.props.post.commentCount}</span>
+          <div className="Posts-show-comment-count">
+            {<CommentIcon />} {this.props.post.commentCount}
+          </div>
+          <CommentsContainer post={this.props.post}/>
         </div>
         </div>
       </div>
