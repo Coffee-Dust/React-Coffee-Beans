@@ -18,8 +18,8 @@ class CommentsContainer extends Component {
 
   render() {
     return (
-      <div>
-        
+      <div className="Comments-container">
+        <CommentsList comments={this.state.comments} />
       </div>
     );
   }
