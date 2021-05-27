@@ -26,6 +26,9 @@ const mapDispatchToProps = dispatch => ({
 class PostsContainer extends Component {
 
   componentDidMount() {
+    if (this.props.currentPopup && !this.props.match.params.id) {
+      this.props.app.closePopup()
+    }
     this.props.actions.fetchPosts()
   }
 
