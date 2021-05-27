@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import CommentsList from '../components/comments/List';
 
 class CommentsContainer extends Component {
@@ -26,4 +27,4 @@ class CommentsContainer extends Component {
   }
 }
 
-export default CommentsContainer;
+export default connect(state=>({currentUser: state.users.currentUser}))(CommentsContainer);
