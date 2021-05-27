@@ -52,7 +52,7 @@ class PostsContainer extends Component {
   }
 
   displayFullscreenPost() {
-    if (this.props.match.params.id && this.props.currentPopup === false) {
+    if (this.props.match.params.id && this.props.currentPopup === false && this.props.posts.length > 0) {
       this.props.app.displayPopup([<FullscreenPost post={this.props.posts.find(p => p.id == this.props.match.params.id)}/>], this.exitFullscreenPost)
     }
   }
