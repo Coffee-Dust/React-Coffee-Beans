@@ -6,7 +6,10 @@ class CommentsController < ApplicationController
   end
 
   def create
-    
+    comment = Comment.new(comment_params)
+    if comment.save
+      render json: CommentSerializer.new(comment).to_serialized_json
+    end
   end
 
   private
