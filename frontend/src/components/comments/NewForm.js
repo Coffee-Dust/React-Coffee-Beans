@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Comment from '../../models/comment';
 
 function NewCommentForm(props) {
 
@@ -6,6 +7,13 @@ function NewCommentForm(props) {
 
   const handleSubmit = event=> {
     event.preventDefault();
+    const data = {
+      content: content,
+      post_id: props.post.id,
+      user_id: props.currentUser.id
+    }
+
+    Comment.create(data, props.onNewCommentPersisted)
   }
 
   return (
