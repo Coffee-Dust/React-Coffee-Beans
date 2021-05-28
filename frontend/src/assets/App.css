@@ -87,3 +87,8 @@
   width: 80%;
   display: flex;
 }
+
+.no-scroll {
+  overflow: hidden;
+  height: 100vh;
+}
