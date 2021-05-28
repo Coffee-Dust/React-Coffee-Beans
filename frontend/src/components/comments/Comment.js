@@ -1,9 +1,10 @@
 import React from 'react';
 
-function Comment(props) {
+function Comment({content, user}) {
   return (
-    <div>
-      
+    <div className="Comments-show">
+      <div className="Comments-show-user">{user.name}</div>
+      <p className="Comments-show-content">{content}</p>
     </div>
   );
 }
