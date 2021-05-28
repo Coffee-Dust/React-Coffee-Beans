@@ -72,12 +72,13 @@
   height: 100%;
 }
 
-.Posts-show-fullscreen .Posts-show {
+.Posts-show-fullscreen > .Posts-show {
   transform: none;
   width: 80%;
-  height: 500px;
+  height: 100%;
   margin: 0 auto;
   cursor: auto;
+  background-position-y: top;
 }
 .Posts-show-fullscreen > * {
   color: antiquewhite;
@@ -93,4 +94,11 @@
 .Posts-show-fullscreen .Posts-reactions-bar {
   display: block;
   float: left;
+}
+
+.Posts-show-fullscreen .Posts-show-interactions-bar {
+  width: 100%;
+  position: absolute;
+  left: 0px;
+  top: 60vh;
 }
