@@ -7,6 +7,7 @@ class Comment {
     this.id = data.id
     this.user = data.user
     this.content = data.content
+    this.date = new Date(data.created_at)
   }
 
   static create(data, successCallback) {
