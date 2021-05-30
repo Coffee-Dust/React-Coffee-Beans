@@ -17,7 +17,8 @@ class ShowUser extends Component {
 
   render() {
     return (
-      <div>
+      <div className="Users-show">
+        
         <PostList posts={this.state.posts} />
       </div>
     );
