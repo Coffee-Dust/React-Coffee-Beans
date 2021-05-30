@@ -18,7 +18,13 @@ class ShowUser extends Component {
   render() {
     return (
       <div className="Users-show">
-        
+        <div className="Users-show-info-bar">
+          <img src="" alt="" />
+          <span>{this.user.name}</span>
+        </div>
+        <div className="Users-show-select-display-bar">
+          <h4>My Beans</h4>
+        </div>
         <PostList posts={this.state.posts} />
       </div>
     );
