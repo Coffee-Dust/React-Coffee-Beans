@@ -4,6 +4,7 @@ import { displayPopup, closePopup } from '../actions/app';
 import { createUser, loginUser } from '../actions/users';
 import LoginForm from '../components/users/LoginForm';
 import NewUserForm from '../components/users/NewForm';
+import ShowUser from '../components/users/Show';
 
 class UsersContainer extends PureComponent {
   
@@ -21,6 +22,7 @@ class UsersContainer extends PureComponent {
       return (
         <div>
           <h1>Hello, {this.props.currentUser.name}!</h1>
+          <ShowUser user={this.props.currentUser} />
         </div>
       )
     } else {
