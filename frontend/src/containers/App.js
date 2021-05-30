@@ -1,7 +1,8 @@
 import { BrowserRouter as Router, } from 'react-router-dom';
 import '../assets/App.css';
 import '../assets/Post.css';
-import '../assets/Comment.css'
+import '../assets/Comment.css';
+import '../assets/User.css';
 import AppRoutes from '../components/app/AppRoutes';
 import Navbar from '../components/app/Navbar';
 import React, { Component } from 'react';
