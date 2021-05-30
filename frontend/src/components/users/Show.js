@@ -10,6 +10,10 @@ class ShowUser extends Component {
     }
   }
 
+  componentDidMount() {
+    this.user.getPosts(posts=> this.setState({posts: posts}))
+  }
+
   render() {
     return (
       <div>
