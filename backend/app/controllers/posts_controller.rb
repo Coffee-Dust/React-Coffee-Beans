@@ -1,7 +1,13 @@
 class PostsController < ApplicationController
 
   def index
-    posts = Post.order(created_at: "desc").limit(params[:limit])
+
+    if params[:user_id]
+      posts = User.find_by(id: params[:user_id]).posts.order(created_at: "desc")
+    else
+      posts = Post.order(created_at: "desc").limit(params[:limit])
+    end
+
     json = posts.map do |post| 
       PostSerializer.new(post).to_serialized_json
     end
