@@ -7,6 +7,8 @@ const Paths = {
 
   showUser: (user)=> `/users/${user.id}`,
 
+  userPosts: (user)=> `/users/${user.id}/beans`,
+
   showPost: (post)=> `/beans/${post.id}`,
 
   showPostComments: (post)=> `/beans/${post.id}/comments`
