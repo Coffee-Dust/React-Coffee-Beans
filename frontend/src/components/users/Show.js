@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PostList from '../posts/List';
 
 class ShowUser extends Component {
 
@@ -17,7 +18,7 @@ class ShowUser extends Component {
   render() {
     return (
       <div>
-        
+        <PostList posts={this.state.posts} />
       </div>
     );
   }
