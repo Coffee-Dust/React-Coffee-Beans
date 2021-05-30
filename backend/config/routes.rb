@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
-  
-  resources :users, only: [:create, :show]
+
+  resources :users, only: [:create, :show] do
+    resources :posts, path: "beans", only: [:index]
+  end
 
   resources :posts, path: "beans" do
     resources :comments, except: [:show, :edit, :new]
