@@ -1,4 +1,4 @@
-.Posts-show-fullscreen .Posts-show-comment-count {
+.Posts-show-fullscreen > .Posts-show > .Posts-show-interactions-bar > .Posts-show-comment-count {
   background-color: antiquewhite;
   opacity: 0.6;
   color: #663b24;
@@ -7,7 +7,7 @@
   padding-bottom: 0px;
   margin-bottom: -5px;
 }
-.Posts-show-fullscreen .Posts-show-comment-count svg {
+.Posts-show-fullscreen > .Posts-show > .Posts-show-interactions-bar > .Posts-show-comment-count > svg {
   fill: #663b24;
 }
 

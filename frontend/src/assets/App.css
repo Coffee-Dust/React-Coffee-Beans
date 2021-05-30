@@ -15,7 +15,7 @@
   background-repeat: no-repeat;
   background-position-x: center;
 }
-.App-logo span {
+.App-logo > span {
   position: absolute;
   overflow: visible;
   color: antiquewhite;
@@ -41,14 +41,14 @@
   z-index: 99;
 }
 
-.App-navbar a {
+.App-navbar > a {
   display: block;
   text-decoration: none;
   margin: 0 20px;
   color: antiquewhite;
 }
 
-.App-navbar a:hover {
+.App-navbar > a:hover {
   transition: 1s;
   color: black;
 }

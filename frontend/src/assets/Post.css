@@ -27,7 +27,7 @@
 .Posts-show-user {
   width: 100%;
 }
-.Posts-show-user a {
+.Posts-show-user > a {
   word-wrap: break-word;
   color: antiquewhite;
 }
@@ -84,19 +84,17 @@
   color: antiquewhite;
 }
 
-.Posts-show-fullscreen .Posts-show-comment-count {
+.Posts-show-fullscreen > .Posts-show > .Posts-show-interactions-bar > .Posts-show-comment-count {
   display: block;
   float: right;
 }
-.Posts-show-fullscreen svg {
-  fill: antiquewhite;
-}
-.Posts-show-fullscreen .Posts-reactions-bar {
+
+.Posts-show-fullscreen > .Posts-show > .Posts-show-interactions-bar > .Posts-reactions-bar {
   display: block;
   float: left;
 }
 
-.Posts-show-fullscreen .Posts-show-interactions-bar {
+.Posts-show-fullscreen > .Posts-show > .Posts-show-interactions-bar {
   width: 100%;
   position: absolute;
   left: 0px;

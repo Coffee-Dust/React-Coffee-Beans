@@ -1,17 +1,22 @@
+.Users-container {
+  width: 100%;
+}
+
 .Users-show {
   margin: -10px;
+  width: 100%;
 }
 
 .Users-show-info-bar {
   width: 100%;
   height: 70px;
-  background: #351b0dd3;
+  background: #351b0dc4;
   display: flex;
   align-items: center;
   
 }
 
-.Users-show-info-bar img {
+.Users-show-info-bar > img {
   border-radius: 50%;
   width: 50px;
   height: 50px;
@@ -20,7 +25,7 @@
   margin: 0 20px;
 }
 
-.Users-show-info-bar span {
+.Users-show-info-bar > span {
   font-size: 1.3em;
   font-family: cursive;
 }
@@ -28,7 +33,7 @@
 .Users-show-select-display-bar {
   width: 40%;
   height: 30px;
-  background: #130905c7;
+  background: #130905b4;
   border-radius: 0px 0px 10px 0px;
   display: flex;
   align-items: center;
