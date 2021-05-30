@@ -21,7 +21,6 @@ class UsersContainer extends PureComponent {
     if (this.props.currentUser) {
       return (
         <div>
-          <h1>Hello, {this.props.currentUser.name}!</h1>
           <ShowUser user={this.props.currentUser} />
         </div>
       )
