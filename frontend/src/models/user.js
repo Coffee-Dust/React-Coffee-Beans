@@ -16,6 +16,12 @@ class User {
       successCallback(this.posts)
     })
   }
+
+  static findWithID(id, successCallback) {
+    new AjaxCall(Paths.showUser({id: id})).getData().then(userData=> {
+      successCallback(new this(userData))
+    })
+  }
 }
 
 export default User;
