@@ -1,5 +1,5 @@
 import AjaxCall from "../helpers/ajax"
-
+import User from "../models/user"
 
 export function createUser(formData) {
   console.log("this return got called with ", formData);
@@ -30,5 +30,11 @@ export function loginUser(formData) {
 }
 
 export function addCurrentUser(userData) {
-  return {type: "ADD_CURRENT_USER", user: userData}
+  let user = null
+  if (userData.id) {
+    user = new User(userData)
+  } else {
+    throw new Error("Invalid User object added to store")
+  }
+  return {type: "ADD_CURRENT_USER", user: user}
 }
