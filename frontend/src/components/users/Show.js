@@ -1,11 +1,14 @@
-import React from 'react';
+import React, { Component } from 'react';
 
-function UsersShow(props) {
-  return (
-    <div>
-      
-    </div>
-  );
+class ShowUser extends Component {
+  render() {
+    return (
+      <div>
+        
+      </div>
+    );
+  }
 }
 
-export default Show;
+export default ShowUser;
+
