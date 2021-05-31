@@ -17,11 +17,13 @@ function LoginForm(props) {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
-      <input type="text" name="email" onChange={handleChange} value={formData.email} />
-      <input type="password" name="password" onChange={handleChange} />
-      <input type="submit" />
-    </form>
+    <fieldset>
+      <form onSubmit={handleSubmit}>
+        <input type="text" name="email" onChange={handleChange} value={formData.email} />
+        <input type="password" name="password" onChange={handleChange} />
+        <input type="submit" />
+      </form>
+    </fieldset>
   )
 }
 
