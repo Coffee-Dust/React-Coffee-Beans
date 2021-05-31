@@ -22,7 +22,7 @@ function NewUser(props) {
   const passwordsMatch = (formData.password === formData.password_confirmation) ? "Passwords match! You good to go." : "No. Passwords don't match!"
 
   return (
-    <div>
+    <fieldset>
       <form onSubmit={handleSubmit}>
         <label>Name: </label>
         <input type="text" name="name" value={formData.name} onChange={handleChange}/>
@@ -35,7 +35,7 @@ function NewUser(props) {
         <input type="password" name="password_confirmation" onChange={handleChange}/>
         <input type="submit" />
       </form>
-    </div>
+    </fieldset>
   );
 }
 
