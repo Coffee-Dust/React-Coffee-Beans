@@ -44,6 +44,9 @@ class UsersContainer extends PureComponent {
     this.checkRouteAndRunAction()
   }
 
+  componentDidUpdate() {
+    this.checkRouteAndRunAction()
+  }
 
 
   render() {
