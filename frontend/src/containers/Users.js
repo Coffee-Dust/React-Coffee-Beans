@@ -19,6 +19,14 @@ class UsersContainer extends PureComponent {
       }
     },
 
+    showProfileOrDisplaySignup: ()=> {
+      if (this.props.isLoggedIn) {
+        if (!this.state.showUserNode) {this.setState({showUserNode: <ShowUser user={this.props.currentUser} />})}
+
+      } else if (!this.props.currentPopup && !this.props.users.pendingFetch) {
+        this.props.displayPopup([<Signup />])
+      }
+    }
   }
 
 
