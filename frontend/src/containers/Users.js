@@ -6,6 +6,15 @@ import Signup from '../components/users/Signup';
 
 class UsersContainer extends PureComponent {
   
+  state = {
+    showUserNode: false
+  }
+  
+  routeActions = {
+
+  }
+
+
   componentDidMount() {
     if (!this.props.currentUser) {
       this.props.app.displayPopup([
@@ -14,9 +23,6 @@ class UsersContainer extends PureComponent {
     }
   }
 
-  state = {
-    showUserNode: false
-  }
 
 
   render() {
