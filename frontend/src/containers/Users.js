@@ -41,11 +41,7 @@ class UsersContainer extends PureComponent {
   }
 
   componentDidMount() {
-    if (!this.props.currentUser) {
-      this.props.app.displayPopup([
-        <Signup />
-      ])
-    }
+    this.checkRouteAndRunAction()
   }
 
 
