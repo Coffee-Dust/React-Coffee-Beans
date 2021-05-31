@@ -2,9 +2,8 @@ import AjaxCall from "../helpers/ajax"
 import User from "../models/user"
 
 export function createUser(formData) {
-  console.log("this return got called with ", formData);
   return dispatch => {
-    console.log("this return got called");
+    dispatch({type: "PENDING_USER_FETCH"})
     new AjaxCall("/users").postData(formData)
     .then(user=> {
       if (user.id) {
