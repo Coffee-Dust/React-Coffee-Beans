@@ -3,6 +3,7 @@ import {connect} from 'react-redux'
 import { displayPopup } from '../actions/app';
 import ShowUser from '../components/users/Show';
 import Signup from '../components/users/Signup';
+import User from '../models/user';
 
 class UsersContainer extends PureComponent {
   
@@ -11,6 +12,12 @@ class UsersContainer extends PureComponent {
   }
   
   routeActions = {
+    findUserAndSetNode: ()=> {
+      if (!this.state.showUserNode) {
+        User.findWithID(this.props.match.params.id, 
+          user=> this.setState({showUserNode: <ShowUser user={user} />}))
+      }
+    },
 
   }
 
