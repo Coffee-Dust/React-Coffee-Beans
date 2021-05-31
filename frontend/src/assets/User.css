@@ -45,3 +45,27 @@
   color: antiquewhite;
   margin: 0 10px;
 }
+
+.Users-signup-popup {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.Users-signup-popup h2 {
+  color: antiquewhite;
+  font-family: cursive;
+  text-align: center;
+}
+
+.Users-signup-popup > fieldset {
+  padding: 20px;
+}
+
+.Users-signup-popup > fieldset > form > input {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.Users-signup-popup >fieldset > form > label {
+  color: antiquewhite;
+}
