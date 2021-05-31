@@ -5,8 +5,8 @@ import NewUserForm from './NewForm';
 function Signup() {
   return (
     <div className="Users-signup-popup">
-      <LoginForm loginUser={this.props.loginUser}/>,
-      <NewUserForm createUser={this.props.createUser}/>
+      <LoginForm />,
+      <NewUserForm />
     </div>
   );
 }
