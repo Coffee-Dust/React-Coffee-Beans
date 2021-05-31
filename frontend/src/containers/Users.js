@@ -29,6 +29,16 @@ class UsersContainer extends PureComponent {
     }
   }
 
+  checkRouteAndRunAction() {
+
+    if (this.props.match.params.id) {
+      // route is show user(/users/:id):
+      this.routeActions.findUserAndSetNode()
+    } else {
+      // route is /profile
+      this.routeActions.showProfileOrDisplaySignup()
+    }
+  }
 
   componentDidMount() {
     if (!this.props.currentUser) {
