@@ -1,4 +1,7 @@
 import {useState} from 'react';
+import { connect } from 'react-redux';
+import { closePopup } from '../../actions/app';
+import { createUser } from '../../actions/users';
 
 function NewUser(props) {
 
@@ -8,7 +11,8 @@ function NewUser(props) {
     event.preventDefault()
     // Check for missing data & matching password:
     if (Object.values(formData).every(v => v !== "") && formData.password === formData.password_confirmation) {
-      props.createUser({user: formData})
+      props.dispatch(createUser({user: formData}))
+      props.dispatch(closePopup())
     }
   }
 
@@ -35,4 +39,4 @@ function NewUser(props) {
   );
 }
 
-export default NewUser;
+export default connect(null)(NewUser);

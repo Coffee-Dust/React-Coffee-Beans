@@ -1,4 +1,7 @@
 import { useState } from "react";
+import { connect } from "react-redux";
+import { closePopup } from "../../actions/app";
+import { loginUser } from "../../actions/users";
 
 function LoginForm(props) {
   const [formData, setFormData] = useState({email: "", password: ""});
@@ -8,7 +11,8 @@ function LoginForm(props) {
   }
   const handleSubmit = event=> {
     event.preventDefault()
-    props.loginUser({user: formData})
+    props.dispatch(loginUser({user: formData}))
+    props.dispatch(closePopup())
     setFormData({ email: "", password: "" })
   }
 
@@ -20,4 +24,5 @@ function LoginForm(props) {
     </form>
   )
 }
-export default LoginForm
+
+export default connect(null)(LoginForm);
