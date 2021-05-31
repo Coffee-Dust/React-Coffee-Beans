@@ -18,6 +18,7 @@ export function createUser(formData) {
 
 export function loginUser(formData) {
   return dispatch=> {
+    dispatch({type: "PENDING_USER_FETCH"})
     new AjaxCall("/sessions").postData(formData)
     .then(user=> {
       if (user.id) {
