@@ -14,21 +14,19 @@ class UsersContainer extends PureComponent {
     }
   }
 
-  render() {
-    if (this.props.currentUser) {
-      return (
-        <div>
-          <ShowUser user={this.props.currentUser} />
-        </div>
-      )
-    } else {
-      return (
-        <div>
-          Please login!
-        </div>
-      );
-    }
+  state = {
+    showUserNode: false
   }
+
+
+  render() {
+    return (
+      <div className="Users-container">
+        {this.state.showUserNode}
+      </div>
+    )
+  }
+
 }
 
 const mapStateToProps = state=> (
