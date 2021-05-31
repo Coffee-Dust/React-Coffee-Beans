@@ -19,7 +19,9 @@ function LoginForm(props) {
   return (
     <fieldset>
       <form onSubmit={handleSubmit}>
+        <label>Email: </label>
         <input type="text" name="email" onChange={handleChange} value={formData.email} />
+        <label>Password: </label>
         <input type="password" name="password" onChange={handleChange} />
         <input type="submit" />
       </form>
