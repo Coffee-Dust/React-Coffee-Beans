@@ -31,7 +31,10 @@ class UsersContainer extends PureComponent {
 
 const mapStateToProps = state=> (
   {
-    currentUser: state.users.currentUser
+    users: state.users,
+    currentUser: state.users.currentUser,
+    isLoggedIn: !!state.users.currentUser,
+    currentPopup: state.app.currentPopup
   }
 )
 const mapDispatchToProps = dispatch=> (
