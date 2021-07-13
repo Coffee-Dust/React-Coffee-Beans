@@ -18,7 +18,7 @@ class Reaction {
     this.type = type
     this.glyph = this.constructor.typeGlyphs[type]
     this.reactableID = parent.id
-    this.reactableType = parent.constructor.name
+    this.reactableType = parent.constructorName
     this.currentUser = currentUser
   }
 

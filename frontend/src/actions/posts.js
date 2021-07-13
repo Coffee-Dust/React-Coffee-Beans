@@ -2,7 +2,7 @@ import AjaxCall from "../helpers/ajax"
 import Post from "../models/post"
 
 export function addPost(post) {
-  if (post.constructor.name === "Post") {
+  if (post.constructorName === "Post") {
     return {
       type: "ADD_POST",
       post

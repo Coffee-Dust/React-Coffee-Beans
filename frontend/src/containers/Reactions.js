@@ -6,7 +6,7 @@ class ReactionsContainer extends Component {
 
   constructor(props) {
     super(props)
-    this.parentType = this.props.parent.constructor.name
+    this.parentType = this.props.parent.constructorName
     this.state = {
       reactionsCount: this.props.parent.reactionsCount
     }
