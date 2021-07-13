@@ -17,4 +17,6 @@ Rails.application.routes.draw do
     resources :sessions, only: [:create, :destroy, :index]
   end
 
+  match '*path' => redirect('/'), via: :get
+
 end
