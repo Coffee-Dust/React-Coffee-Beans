@@ -4,6 +4,7 @@ import Paths from "../helpers/path";
 class Comment {
   
   constructor(data) {
+    this.constructorName = "Comment"
     this.id = data.id
     this.user = data.user
     this.content = data.content

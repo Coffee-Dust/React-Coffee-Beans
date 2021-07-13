@@ -4,6 +4,7 @@ import Comment from "./comment"
 class Post {
 
   constructor(data) {
+    this.constructorName = "Post"
     if (data.id) {
       this.id = data.id
       this.content = data.content
