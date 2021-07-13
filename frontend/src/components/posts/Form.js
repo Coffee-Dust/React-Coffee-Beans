@@ -17,7 +17,10 @@ function PostsForm(props) {
     if (props.post.id) {
       props.post.update(content)
     } else {
-      Post.create(data, post=> {props.container.actions.addPost(post); props.container.app.closePopup()})
+      Post.create(data, post=> {
+        props.container.app.closePopup()
+        props.container.actions.addPost(post)
+      })
     }
   }
 
