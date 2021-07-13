@@ -3,15 +3,18 @@ Rails.application.routes.draw do
 
   root 'static#index'
 
-  resources :users, only: [:create, :show] do
-    resources :posts, path: "beans", only: [:index]
-  end
-
-  resources :posts, path: "beans" do
-    resources :comments, except: [:show, :edit, :new]
-  end
+  scope '/API' do
+    resources :users, only: [:create, :show] do
+      resources :posts, path: "beans", only: [:index]
+    end
   
-  post :reactions, to: 'reactions#react_or_remove'
+    resources :posts, path: "beans" do
+      resources :comments, except: [:show, :edit, :new]
+    end
+    
+    post :reactions, to: 'reactions#react_or_remove'
+  
+    resources :sessions, only: [:create, :destroy, :index]
+  end
 
-  resources :sessions, only: [:create, :destroy, :index]
 end
