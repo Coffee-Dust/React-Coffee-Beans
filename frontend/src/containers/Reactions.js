@@ -11,6 +11,10 @@ class ReactionsContainer extends Component {
       reactionsCount: this.props.parent.reactionsCount
     }
   }
+  
+  shouldComponentUpdate() {
+    return this.state.reactionsCount.values === this.props.parent.reactionsCount.values
+  }
 
   generateReactionButtons() {
     return Object.keys(Reaction.typeGlyphs).map(type=> {
