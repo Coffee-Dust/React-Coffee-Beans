@@ -13,6 +13,7 @@ class CommentSerializer
 
   def to_serialized_json
     @json = @comment.as_json(@@options)
+    # @json["reactions_count"] = @comment.reactions_count
     @json
   end
 end
