@@ -1,5 +1,5 @@
 // Configure URL here for all AJAX fetch requests //
-const baseURL = "http://localhost:3001"
+const baseURL = ""
 
 class AjaxCall {
 
