@@ -34,7 +34,7 @@
   backdrop-filter: blur(4px);
   -moz-backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(4px);
-  box-shadow: 3px 3px 5px rgba(73, 31, 6, 0.9);
+  box-shadow: 3px 3px 5px rgba(31, 13, 3, 0.9);
 
   width: 100%;
   position: fixed;
@@ -63,7 +63,7 @@
   min-height: 1000px;
   color: antiquewhite;
   display: flex;
-  padding: 10px;
+  /* padding: 10px; */
   margin-top: 50px;
 }
 
