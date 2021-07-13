@@ -1,4 +1,4 @@
-import { Route } from "react-router-dom";
+import { Route, Redirect } from "react-router-dom";
 import Posts from "../../containers/Posts";
 import Users from "../../containers/Users";
 import Paths from "../../helpers/path";
