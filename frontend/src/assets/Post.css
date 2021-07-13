@@ -1,3 +1,6 @@
+.Posts-container {
+  padding: 10px;
+}
 .Posts-feed {
   display: flex;
   flex-wrap: wrap;
