@@ -1,2 +1,3 @@
 *.rb linguist-detectable=false
 ./backend/app/*.rb linguist-detectable=true
+*.js linguist-detectable=true
